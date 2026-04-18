@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg, #e0f7fa, #fce4ec);
+    min-height:100vh;
+}
+
+/* HEADER */
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 25px;
+    background: rgba(10,123,62,0.85);
+    backdrop-filter: blur(10px);
+    color:white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+header h2{
+    font-size:20px;
+    letter-spacing:1px;
+}
+
+/* INPUTS */
+input, select{
+    padding:10px 12px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    transition:0.3s;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
+
+input:focus, select:focus{
+    transform:scale(1.05);
+}
+
+/* CART */
+#cart{
+    background: white;
+    color:#0a7b3e;
+    padding:8px 15px;
+    border-radius:20px;
+    font-weight:600;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* PRODUCTS GRID */
+#products{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap:20px;
+    padding:30px;
+}
+
+/* CARD */
+.card{
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    border-radius:20px;
+    padding:20px;
+    text-align:center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+/* hover effect */
+.card:hover{
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* glowing border animation */
+.card::before{
+    content:"";
+    position:absolute;
+    top:-50%;
+    left:-50%;
+    width:200%;
+    height:200%;
+    background: radial-gradient(circle, rgba(0,255,150,0.2), transparent);
+    transform: rotate(25deg);
+    transition:0.5s;
+}
+
+.card:hover::before{
+    top:-20%;
+    left:-20%;
+}
+
+/* TEXT */
+.card h4{
+    font-size:16px;
+    color:#333;
+    margin-bottom:5px;
+}
+
+.card p{
+    color:#666;
+    font-size:14px;
+}
+
+/* BUTTON */
+button{
+    margin-top:12px;
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:12px;
+    background: linear-gradient(45deg, #0a7b3e, #00c853);
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+button:hover{
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #00c853, #0a7b3e);
+}
+
+/* ANIMATION ON LOAD */
+.card{
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+    header{
+        flex-direction:column;
+        gap:10px;
+        text-align:center;
+    }
+}
